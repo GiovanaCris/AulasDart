@@ -1,3 +1,5 @@
+import 'dart:io';
+
 class Animal {
   String nome;
   String genero;
@@ -42,12 +44,21 @@ class Gato extends Animal {
   }
 }
 
+class Papagaio extends Animal {
+  Papagaio({required String nome, required String genero, required int idade})
+    : super(nome: nome, genero: genero, idade: idade);
+  @override
+  void falar() {
+    print("$nome: piupiu! 🦜");
+  }
+}
+
 void main() {
   // Criando uma lista de animais
   List<Animal> animais = [
     Cachorro(nome: "Rex", genero: "Macho", idade: 5, qtPatas: 4),
     Gato(nome: "Mimi", genero: "Fêmea", idade: 3, qtPatas: 4),
-    Cachorro(nome: "Bolt", genero: "Macho", idade: 2, qtPatas: 4),
+    Papagaio(nome: "LangChain", genero: "Macho", idade: 2),
   ];
 
   // Percorrendo com forEach
